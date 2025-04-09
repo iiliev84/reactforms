@@ -35,10 +35,21 @@ function SignUpForm({setToken}) {
         {error && <p>{error}</p>}
         <form onSubmit={handleSubmit}>
             <label>
-                Username: <input value = {username} onChange={(e) => setUsername(e.target.value)} />
+                Username: <input 
+                value = {username}
+                pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,}$"
+                title="Your username must be at least 5 characters long, contain at least one letter and one number."
+                required
+                onChange={(e) => setUsername(e.target.value)} />
             </label>
             <label>
-                Password: <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                Password: <input 
+                type="password" 
+                value={password} 
+                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+                title="Your password must be at least 8 characters long, contain at least one number, one uppercase and lowercase letter and one special character."
+                required 
+                onChange={(e) => setPassword(e.target.value)} />
             </label>
             <button>Submit</button>
             
