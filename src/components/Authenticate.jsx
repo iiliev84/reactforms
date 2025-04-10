@@ -31,7 +31,7 @@ function Authenticate({token}) {
             <button onClick={handleClick}>Authenticate Token!</button>
             {auth ?
             <div>
-                <h3> Your username is {auth.username}</h3>
+                <h3> Your username is <p>{auth.username}</p></h3>
             </div>
         :
         <h3>You are not signed in! Please sign up and authenticate.</h3>
