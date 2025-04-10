@@ -3,6 +3,7 @@ import { useState } from 'react'
 function Authenticate({token}) {
     const [successMessage, setSuccessMessage] = useState(null);
     const [error, setError] = useState(null);
+    const [auth, setAuth] = useState()
 
     async function handleClick() {
     try {
@@ -16,6 +17,7 @@ function Authenticate({token}) {
       );
       const result = await response.json();
       setSuccessMessage(result.message);
+      setAuth(result.data)
     } catch (error) {
       setError(error.message);
     }
@@ -25,9 +27,16 @@ function Authenticate({token}) {
          <div>
             <h2>Authenticate</h2>
             {successMessage && <p>{successMessage}</p>}
-            {error && <p>{error}</p>}
+            {error && <p>{error} </p>}
             <button onClick={handleClick}>Authenticate Token!</button>
-            
+            {auth ?
+            <div>
+                <h3> Your username is {auth.username}</h3>
+            </div>
+        :
+        <h3>You are not signed in! Please sign up and authenticate.</h3>
+        
+    }
         </div>
         </>
     )

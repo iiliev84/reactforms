@@ -41,7 +41,7 @@ function SignUpForm({setToken}) {
                 title="Your username must be at least 5 characters long, contain at least one letter and one number."
                 required
                 onChange={(e) => setUsername(e.target.value)} />
-            </label>
+            </label> <spacer></spacer>
             <label>
                 Password: <input 
                 type="password" 
@@ -50,9 +50,8 @@ function SignUpForm({setToken}) {
                 title="Your password must be at least 8 characters long, contain at least one number, one uppercase and lowercase letter and one special character."
                 required 
                 onChange={(e) => setPassword(e.target.value)} />
-            </label>
+            </label> <br></br>
             <button>Submit</button>
-            
         </form>
         </>
     )
